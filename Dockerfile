@@ -11,7 +11,7 @@ RUN apt-get update -qq \
  && apt-get install -y $BUILD_PACKAGES $DEV_PACKAGES $RUBY_PACKAGES \
  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN git clone --recursive https://github.com/RediSearch/RediSearch.git .
+RUN git clone --recursive https://github.com/RediSearch/RediSearch.git . && git checkout 2.0
 RUN ./deps/readies/bin/getpy2
 RUN ./system-setup.py
 RUN make fetch SHOW=1
